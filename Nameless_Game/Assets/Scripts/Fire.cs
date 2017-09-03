@@ -7,7 +7,7 @@ public class Fire : MonoBehaviour {
 	public float timebtwn = 0.3f;
 	public GameObject shot;
 	public GameObject shotspon;
-	float camraylength=100f;
+	float camraylength = 100f;
 	int floorMask; 
 	public GameObject ganpivot;
 
