@@ -6,14 +6,14 @@ public class ShotControler : MonoBehaviour {
 	Rigidbody rb;
 	public float speed=5f;
 	float timer=0f;
-	// Use this for initialization
+
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 	}
 	
-	// Update is called once per frame
+
 	void FixedUpdate () {
-		rb.velocity = transform.forward * speed;
+		rb.velocity = transform.forward * Time.deltaTime * speed;
 		timer += Time.deltaTime;
 	}
 	void OnTriggerEnter(Collider other) {
@@ -45,9 +45,12 @@ public class ShotControler : MonoBehaviour {
 			Vector3 OutVec = Vector3.Reflect (transform.forward, normalN);
 			transform.rotation = Quaternion.LookRotation (OutVec);
 
-		} else if (other.gameObject.CompareTag ("Player") && timer>0.2f) {
+		} else if (other.gameObject.CompareTag ("Player") && timer > 0.2f) {
 			Destroy (gameObject);
 			Debug.Log ("player");
+		} else if (other.gameObject.CompareTag ("Bomber")) {
+			Destroy (gameObject);
+			Destroy (other.gameObject);
 		}
 	}
 

@@ -9,6 +9,7 @@ TagManager:
   - S
   - E
   - W
+  - Bomber
   layers:
   - Default
   - TransparentFX
