@@ -11,7 +11,9 @@ public class PlayerHealth : MonoBehaviour
 	public Slider healthSlider;
 	public Image damageImage;
 	public float flashSpeed = 5f;
-	public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
+	public Color damageflashColour = new Color(1f, 0f, 0f, 0.1f);
+	public Color treatmentflashColour = new Color(0f, 1f, 0f, 0.1f);
+
 	public Text restart;
 
 
@@ -20,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
 	GameControler gameControler;
 	bool isDead;
 	bool damaged;
-
+	bool istreatment;
 
 	void Awake ()
 	{
@@ -36,13 +38,27 @@ public class PlayerHealth : MonoBehaviour
 	{
 		if(damaged)
 		{
-			damageImage.color = flashColour;
+			damageImage.color = damageflashColour;
 		}
 		else
 		{
 			damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
 		}
 		damaged = false;
+
+
+
+
+		if(istreatment)
+		{
+			damageImage.color = treatmentflashColour;
+		}
+		else
+		{
+			damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+		}
+		istreatment = false;
+
 
 		if (isDead && Input.GetKeyDown(KeyCode.R)) {
 			RestartLevel ();
@@ -85,5 +101,15 @@ public class PlayerHealth : MonoBehaviour
 	public void RestartLevel ()
 	{
 		SceneManager.LoadScene (0);
+	}
+
+	public void treatment(int amount){
+		currentHealth += amount;
+		istreatment = true;
+		healthSlider.value = currentHealth;
+		if (currentHealth > 100) {
+			currentHealth = 100;
+		}
+
 	}
 }

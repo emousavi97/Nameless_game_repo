@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameControler : MonoBehaviour {
-	int a;
+	
 	public GameObject  one, two, three, four, five, six;
 	public GameObject bomber;
+	public GameObject Healer;
 	public Text pnt_txt;
 	float timer = 0;
 	public float timebtwn = 5f;
@@ -21,33 +22,42 @@ public class GameControler : MonoBehaviour {
 		timer += Time.deltaTime;
 		if (timer >= timebtwn) {
 			timer = 0f;
-			a = Random.Range (1, 7);
+			int rand = Random.Range (1, 11);
+			if (rand < 6) {
+				Make (Healer);
+			} else {
+				Make (bomber);
+			}
+		}
+
+	}
+	void Make(GameObject enemy){
+		
+			int a = Random.Range (1, 7);
 
 			switch (a) {
 			case 1:
-				Instantiate (bomber, one.transform.position, one.transform.rotation);
+				Instantiate (enemy, one.transform.position, one.transform.rotation);
 				break;
 			case 2:
-				Instantiate (bomber, two.transform.position, two.transform.rotation);
+				Instantiate (enemy, two.transform.position, two.transform.rotation);
 				break;
 			case 3:
-				Instantiate (bomber, three.transform.position, three.transform.rotation);
+				Instantiate (enemy, three.transform.position, three.transform.rotation);
 				break;
 			case 4:
-				Instantiate (bomber, four.transform.position, four.transform.rotation);
+				Instantiate (enemy, four.transform.position, four.transform.rotation);
 				break;
 			case 5:
-				Instantiate (bomber, five.transform.position, five.transform.rotation);
+				Instantiate (enemy, five.transform.position, five.transform.rotation);
 				break;
 			case 6:
-				Instantiate (bomber, six.transform.position, six.transform.rotation);
+				Instantiate (enemy, six.transform.position, six.transform.rotation);
 				break;
 			default:
 				break;
 
 			}
-		}
-
 	}
 	public void PntCntr(int point){
 		points += point;
