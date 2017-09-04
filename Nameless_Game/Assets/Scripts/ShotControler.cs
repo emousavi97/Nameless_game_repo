@@ -6,9 +6,15 @@ public class ShotControler : MonoBehaviour {
 	Rigidbody rb;
 	public float speed=5f;
 	float timer=0f;
+	PlayerHealth playerHealth;
+	public int dameg;
+	GameControler gameControler;
 
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
+		playerHealth = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerHealth> ();
+		gameControler = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameControler> ();
+
 	}
 	
 
@@ -46,11 +52,16 @@ public class ShotControler : MonoBehaviour {
 			transform.rotation = Quaternion.LookRotation (OutVec);
 
 		} else if (other.gameObject.CompareTag ("Player") && timer > 0.2f) {
+			
 			Destroy (gameObject);
+			playerHealth.TakeDamage (dameg);
 			Debug.Log ("player");
-		} else if (other.gameObject.CompareTag ("Bomber")) {
+
+		} else if (other.gameObject.CompareTag ("Enemy")) {
+			
 			Destroy (gameObject);
 			Destroy (other.gameObject);
+			gameControler.PntCntr (1);
 		}
 	}
 

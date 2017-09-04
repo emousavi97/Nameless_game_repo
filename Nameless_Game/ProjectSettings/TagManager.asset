@@ -10,6 +10,7 @@ TagManager:
   - E
   - W
   - Bomber
+  - Enemy
   layers:
   - Default
   - TransparentFX

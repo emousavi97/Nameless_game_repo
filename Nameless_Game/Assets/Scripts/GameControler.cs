@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameControler : MonoBehaviour {
 	int a;
 	public GameObject  one, two, three, four, five, six;
 	public GameObject bomber;
+	public Text pnt_txt;
 	float timer = 0;
 	public float timebtwn = 5f;
+	int points=0;
 	// Use this for initialization
 	void Start () {
-		
+		pnt_txt.text="0";
 	}
 	
 	// Update is called once per frame
@@ -45,5 +48,9 @@ public class GameControler : MonoBehaviour {
 			}
 		}
 
+	}
+	public void PntCntr(int point){
+		points += point;
+		pnt_txt.text = points+"";
 	}
 }
