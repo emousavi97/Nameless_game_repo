@@ -8,11 +8,16 @@ public class GameControler : MonoBehaviour {
 	public GameObject  one, two, three, four, five, six;
 	public GameObject bomber;
 	public GameObject Healer;
+	public GameObject Buffalo;
+	public GameObject Bw, Be;
 	public Text pnt_txt;
-	float timer = 0;
+	float timer = 0f;
+	float buffalo_timer=0f;
 	public float timebtwn = 5f;
+	public float buffalo_timebtwn = 5f;
+
 	int points=0;
-	// Use this for initialization
+
 	void Start () {
 		pnt_txt.text="0";
 	}
@@ -20,10 +25,22 @@ public class GameControler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		timer += Time.deltaTime;
+
+			buffalo_timer += Time.deltaTime;
+		if (buffalo_timer >= buffalo_timebtwn) {
+				
+				buffalo_timer = 0f;
+				int b = Random.Range (1, 3);
+				if (b == 1) {
+					Instantiate (Buffalo, Bw.transform.position, Bw.transform.rotation);
+				} else {
+					Instantiate (Buffalo, Be.transform.position, Be.transform.rotation);
+				}
+			}
 		if (timer >= timebtwn) {
 			timer = 0f;
 			int rand = Random.Range (1, 11);
-			if (rand < 6) {
+			if (rand < 2) {
 				Make (Healer);
 			} else {
 				Make (bomber);

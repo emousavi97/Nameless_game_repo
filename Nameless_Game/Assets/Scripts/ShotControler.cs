@@ -8,12 +8,14 @@ public class ShotControler : MonoBehaviour {
 	float timer=0f;
 	PlayerHealth playerHealth;
 	public int dameg;
+	public float destroy_after=5f;
 	GameControler gameControler;
 
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 		playerHealth = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerHealth> ();
 		gameControler = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameControler> ();
+		Destroy (gameObject, destroy_after);
 
 	}
 	

@@ -136,4 +136,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   First_aid_box: {fileID: 1220079648168814, guid: ef9f5dc8ea2d5744aa4fc014d925953e,
     type: 2}
-  timebtwn: 0.5
+  timebtwn: 1

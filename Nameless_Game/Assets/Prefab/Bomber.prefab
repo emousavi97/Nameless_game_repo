@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomb: {fileID: 1907594505479322, guid: 30c848490938113418d0974dab0f03f4, type: 2}
-  timebtwn: 1
+  timebtwn: 2
 --- !u!114 &114547970278051142
 MonoBehaviour:
   m_ObjectHideFlags: 1
