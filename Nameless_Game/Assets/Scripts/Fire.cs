@@ -10,9 +10,14 @@ public class Fire : MonoBehaviour {
 	float camraylength = 100f;
 	int floorMask; 
 	public GameObject ganpivot;
+	GameControler gameControler;
+	public GameObject Eagle;
+
 
 	void Awake(){
 		floorMask = LayerMask.GetMask ("Floor");
+		gameControler = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameControler> ();
+
 	}
 	
 
@@ -21,6 +26,11 @@ public class Fire : MonoBehaviour {
 		if (Input.GetButton ("Fire1") && timer >= timebtwn ) {
 			Instantiate (shot, shotspon.transform.position, shotspon.transform.rotation);
 			timer = 0f;
+		}
+
+		if (Input.GetKeyDown (KeyCode.F) && gameControler.DoWeHaveEagle ()) {
+			gameControler.ReleaseEagle ();
+			Instantiate (Eagle, shotspon.transform.position, shotspon.transform.rotation);
 		}
 		Turning ();
 	}

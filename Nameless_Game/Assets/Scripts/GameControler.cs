@@ -9,41 +9,48 @@ public class GameControler : MonoBehaviour {
 	public GameObject bomber;
 	public GameObject Healer;
 	public GameObject Buffalo;
+	public GameObject Eagle;
 	public GameObject Bw, Be;
 	public Text pnt_txt;
+	public Text eagle_txt;
 	float timer = 0f;
 	float buffalo_timer=0f;
 	public float timebtwn = 5f;
 	public float buffalo_timebtwn = 5f;
-
+	int MyEagles=0;
 	int points=0;
 
 	void Start () {
 		pnt_txt.text="0";
+		eagle_txt.text="0";
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		timer += Time.deltaTime;
+		buffalo_timer += Time.deltaTime;
 
-			buffalo_timer += Time.deltaTime;
 		if (buffalo_timer >= buffalo_timebtwn) {
-				
-				buffalo_timer = 0f;
-				int b = Random.Range (1, 3);
-				if (b == 1) {
-					Instantiate (Buffalo, Bw.transform.position, Bw.transform.rotation);
-				} else {
-					Instantiate (Buffalo, Be.transform.position, Be.transform.rotation);
-				}
+			buffalo_timer = 0f;
+			int b = Random.Range (1, 3);
+			if (b == 1) {
+				Instantiate (Buffalo, Bw.transform.position, Bw.transform.rotation);
+			} else {
+				Instantiate (Buffalo, Be.transform.position, Be.transform.rotation);
 			}
+		}
+
+
 		if (timer >= timebtwn) {
 			timer = 0f;
 			int rand = Random.Range (1, 11);
-			if (rand < 2) {
+			if (rand <= 1) {
 				Make (Healer);
-			} else {
+			} else if (rand > 1 && rand <= 6) {
 				Make (bomber);
+			} else {
+				Debug.Log ("Eagle");
+				Make (Eagle);
 			}
 		}
 
@@ -79,5 +86,21 @@ public class GameControler : MonoBehaviour {
 	public void PntCntr(int point){
 		points += point;
 		pnt_txt.text = points+"";
+	}
+
+	public void CatchEagle(){
+		MyEagles++;
+		eagle_txt.text = MyEagles + "";
+	}
+
+	public void ReleaseEagle(){
+		if (MyEagles > 0) {
+			MyEagles--;
+			eagle_txt.text = MyEagles + "";
+		}
+	}
+
+	public bool DoWeHaveEagle(){
+		return (MyEagles != 0);
 	}
 }
