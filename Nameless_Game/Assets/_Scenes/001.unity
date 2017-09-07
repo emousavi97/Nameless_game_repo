@@ -211,7 +211,7 @@ MonoBehaviour:
   Be: {fileID: 1712808594}
   pnt_txt: {fileID: 1353749644}
   eagle_txt: {fileID: 748858683}
-  timebtwn: 4
+  timebtwn: 2
   buffalo_timebtwn: 10
 --- !u!4 &346279455
 Transform:
@@ -344,6 +344,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1152195001037386, guid: 77dc3d2f491f543428ca9a9fb18561ec,
         type: 2}
+    - target: {fileID: 114917913614104244, guid: 38f3d979d055adc4cb869870058fe4e8,
+        type: 2}
+      propertyPath: timebtwn
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38f3d979d055adc4cb869870058fe4e8, type: 2}
   m_IsPrefabParent: 0

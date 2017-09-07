@@ -7,10 +7,13 @@ public class HealerController : MonoBehaviour {
 	public GameObject First_aid_box;
 	public float timebtwn=0.5f;
 	float timer = 0f;
+	public float destroy_after=5f;
+
 	// Use this for initialization
-	/*void Start () {
+	void Start () {
 		
-	}*/
+		Destroy (gameObject,destroy_after);
+	}
 
 	// Update is called once per frame
 	void Update () {

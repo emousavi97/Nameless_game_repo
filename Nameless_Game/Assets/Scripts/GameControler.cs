@@ -44,12 +44,11 @@ public class GameControler : MonoBehaviour {
 		if (timer >= timebtwn) {
 			timer = 0f;
 			int rand = Random.Range (1, 11);
-			if (rand <= 1) {
+			if (rand <= 2) {
 				Make (Healer);
-			} else if (rand > 1 && rand <= 6) {
+			} else if (rand > 2 && rand <= 8) {
 				Make (bomber);
 			} else {
-				Debug.Log ("Eagle");
 				Make (Eagle);
 			}
 		}

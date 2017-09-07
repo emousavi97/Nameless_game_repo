@@ -16,7 +16,6 @@ public class ShotControler : MonoBehaviour {
 		playerHealth = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerHealth> ();
 		gameControler = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameControler> ();
 		Destroy (gameObject, destroy_after);
-
 	}
 	
 

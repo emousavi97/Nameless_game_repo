@@ -137,3 +137,4 @@ MonoBehaviour:
   First_aid_box: {fileID: 1220079648168814, guid: ef9f5dc8ea2d5744aa4fc014d925953e,
     type: 2}
   timebtwn: 1
+  destroy_after: 5

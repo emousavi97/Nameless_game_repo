@@ -5,7 +5,7 @@ using UnityEngine;
 public class BomberFire : MonoBehaviour {
 	public GameObject bomb;
 	public float timebtwn=0.5f;
-	float timer = 0f;
+	float timer = 1.5f;
 	// Use this for initialization
 	/*void Start () {
 		
