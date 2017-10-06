@@ -27,7 +27,6 @@ public class ShotControler : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Shot")) {
 			Destroy (other.gameObject);
 			Destroy (gameObject);
-			Debug.Log ("shot to shot");
 		} else if (other.gameObject.CompareTag ("E")) {
 			
 			Vector3 normalE = new Vector3 (-1f, 0f, 0f);
@@ -56,7 +55,6 @@ public class ShotControler : MonoBehaviour {
 			
 			Destroy (gameObject);
 			playerHealth.TakeDamage (dameg);
-			Debug.Log ("player");
 
 		} else if (other.gameObject.CompareTag ("Enemy")) {
 			

@@ -25,7 +25,6 @@ public class EagleController : MonoBehaviour {
 			IsTame = true;
 		} else {
 			IsTame = false;
-			Debug.Log (ves.magnitude);
 
 		}
 	}
